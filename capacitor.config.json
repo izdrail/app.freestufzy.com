@@ -1,0 +1,14 @@
+{
+  "appId": "app.bmwtutorials.com",
+  "appName": "Bmw-Tutorials",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/usr/bin/android-studio-canary",
+  "cordova": {}
+}

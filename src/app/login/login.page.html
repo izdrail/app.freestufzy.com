@@ -1,0 +1,36 @@
+<ion-content class="page-content">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div>
+          <img src="assets/images/bmw-512.png"/>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <form class="login-form" [formGroup]="loginForm" (submit)="doLogin()">
+    <ion-item class="input-item">
+      <ion-label color="secondary" position="stacked">Username</ion-label>
+      <ion-input type="text" formControlName="username" clearInput="true"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label color="secondary" position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password" clearInput="true"></ion-input>
+    </ion-item>
+
+    <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+
+    <p class="sign-up">
+      <a [routerLink]="['/register']">Don't have an account?</a>
+    </p>
+
+    <p class="skip-login">
+      <ion-button color="secondary" [routerLink]="['/posts']">Skip log in</ion-button>
+    </p>
+    <ion-button class="submit-btn" expand="block" [disabled]="!loginForm.valid" type="submit" strong="true">Log In</ion-button>
+  </form>
+</ion-content>

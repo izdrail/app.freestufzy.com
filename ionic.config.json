@@ -1,0 +1,8 @@
+{
+  "name": "Bmw Tutorials",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
+ 

@@ -1,0 +1,46 @@
+<ion-app>
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']">
+              Home
+            </ion-item>
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']" [queryParams]="{ categoryId: 37,  title: 'Series 1'}">
+              Bmw Series 1
+            </ion-item>
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']" [queryParams]="{ categoryId: 36,  title: 'Series 3'}">
+             Bmw Series 3
+            </ion-item>
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']" [queryParams]="{ categoryId: 39,  title: 'Series 5'}">
+              Bmw Series 5
+            </ion-item>
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']" [queryParams]="{ categoryId: 38,  title: 'Bmw X3'}">
+              Bmw X3
+            </ion-item>
+            <ion-item
+                    routerDirection="root"
+                    [routerLink]="['/posts']" [queryParams]="{ categoryId: 40,  title: 'Bmw X5'}">
+              Bmw X5
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </ion-content>
+
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+
+</ion-app>
