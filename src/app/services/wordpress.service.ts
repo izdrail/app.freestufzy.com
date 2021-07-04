@@ -14,12 +14,13 @@ export class WordpressService {
   getPost(postId: any){
     return this.http.get(
       environment.wordpress.api_url
-      + "posts/" + postId)
+      + 'posts/' + postId);
   }
 
   getRecentPosts(categoryId: any, page: number = 1) {
     // if we want to query posts by category
-    let category_url = categoryId? ("&categories=" + categoryId): "";
+    // tslint:disable-next-line:variable-name
+    let category_url = categoryId ? ("&categories=" + categoryId) : "";
 
     return this.http.get(
       environment.wordpress.api_url

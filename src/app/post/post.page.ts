@@ -34,7 +34,7 @@ export class PostPage implements OnInit {
       this.author = data.author.name;
       this.categories = data.categories;
       this.comments = data.comments;
-    })
+    });
   }
 
   getComments(){
@@ -42,7 +42,7 @@ export class PostPage implements OnInit {
   }
 
   loadMoreComments(event) {
-    const page = (this.comments.length/10) + 1;
+    const page = (this.comments.length / 10) + 1;
 
     this.wordpressService.getComments(this.post.id, page)
     .subscribe((comments: []) => {
@@ -51,14 +51,14 @@ export class PostPage implements OnInit {
     }, err => {
       // there are no more comments available
       event.target.disabled = true;
-    })
+    });
   }
 
   async createComment() {
     const loggedUser = await this.authenticationService.getUser();
 
     if (loggedUser) {
-      let user = JSON.parse(loggedUser);
+      const user = JSON.parse(loggedUser);
 
       // check if token is valid
       this.authenticationService.validateAuthToken(user.token)
@@ -74,16 +74,16 @@ export class PostPage implements OnInit {
             this.openEnterCommentAlert(user);
           }
         })
-      ).subscribe()
+      ).subscribe();
     } else {
-      this.openLogInAlert();
+      await this.openLogInAlert();
     }
   }
 
   async openLogInAlert() {
     const alert = await this.alertController.create({
       header: 'Please login',
-      message: 'You need to login in order to comment',
+      message: 'You need to login in order to contact the user',
       buttons: [
         {
           text: 'Cancel',
@@ -102,12 +102,12 @@ export class PostPage implements OnInit {
 
   async openEnterCommentAlert(user: any) {
     const alert = await this.alertController.create({
-      header: 'Add a comment',
+      header: 'Send a message',
       inputs: [
         {
           name: 'comment',
           type: 'text',
-          placeholder: 'Comment'
+          placeholder: 'Message'
         }
       ],
       buttons: [
@@ -125,8 +125,7 @@ export class PostPage implements OnInit {
             .subscribe(
               async (data) => {
                 this.getComments().subscribe( async comments => {
-                  const recentComments = Object.keys(comments).map(i => comments[i]);
-                  this.comments = recentComments;
+                  this.comments = Object.keys(comments).map(i => comments[i]);
                   await loading.dismiss();
                 });
               },

@@ -40,8 +40,8 @@ export class RegisterPage implements OnInit {
   }
 
   onSubmit() {
-    const username = 'YOUR_USER_NAME'; // this should be an administrator Username
-    const password = 'YOUR_PASSWORD'; // this should be an administrator Password
+    const username = ''; // this should be an administrator Username
+    const password = ''; // this should be an administrator Password
 
     // only authenticated administrators can create users
     this.authenticationService.doLogin(username, password)
@@ -60,7 +60,7 @@ export class RegisterPage implements OnInit {
             email: this.registerForm.value.email,
             password: this.registerForm.value.password
           };
-          this.authenticationService.doRegister(userData, res['token'])
+          this.authenticationService.doRegister(userData, res.token)
           .pipe(
             catchError(error => of(error))
           )
@@ -78,6 +78,6 @@ export class RegisterPage implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 }

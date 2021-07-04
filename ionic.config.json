@@ -1,8 +1,8 @@
 {
-  "name": "Bmw Tutorials",
+  "name": "Free Stuff UK",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
- 

@@ -3,8 +3,10 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <div>
-          <img src="assets/images/bmw-512.png"/>
+        <div style="align-items: center">
+         <center>
+           <img src="assets/images/logo-512.png"  alt="logo"/>
+         </center>
         </div>
       </ion-col>
     </ion-row>
@@ -29,8 +31,8 @@
     </p>
 
     <p class="skip-login">
-      <ion-button color="secondary" [routerLink]="['/posts']">Skip log in</ion-button>
+      <ion-button color="warning" [routerLink]="['/posts']">Skip log in</ion-button>
     </p>
-    <ion-button class="submit-btn" expand="block" [disabled]="!loginForm.valid" type="submit" strong="true">Log In</ion-button>
+    <ion-button class="submit-btn" color="danger" expand="block" [disabled]="!loginForm.valid" type="submit" strong="true">Log In</ion-button>
   </form>
 </ion-content>

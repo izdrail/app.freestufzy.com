@@ -1,15 +1,17 @@
 {
-  "name": "bmw-tutorials",
+  "name": "free-stuff-uk",
   "version": "1.0.0",
   "author": "LzoMedia",
-  "homepage": "https://bmwtutorials.com/",
+  "homepage": "https://freestufzy.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "resources": "cordova-res ios && cordova-res android && node scripts/resources.js"
+
   },
   "private": true,
   "dependencies": {
@@ -54,5 +56,5 @@
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
   },
-  "description": "Ionic Wordpress Tutorial demo app"
+  "description": "Get the latest free stuff around the uk."
 }

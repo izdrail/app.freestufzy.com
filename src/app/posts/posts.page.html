@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title *ngIf="!categoryTitle">Recent posts</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title *ngIf="!categoryTitle">Latest free items</ion-title>
     <ion-title *ngIf="categoryTitle">{{categoryTitle}} posts</ion-title>
     <ion-buttons slot="start" *ngIf="categoryTitle">
       <ion-back-button defaultHref="posts"></ion-back-button>
@@ -21,21 +21,24 @@
 
 <ion-content class="page-content">
   <ion-card *ngFor="let post of posts" [routerLink]="['/post', post.id]" class="post-card">
+
+    <img [src]="post.image" style="width: 100vw;" />
+
     <ion-card-header>
       <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p [innerHTML]="post.excerpt.rendered"></p>
     </ion-card-content>
-    <ion-item class="ion-activated" detail lines="none" color="secondary">
+    <ion-item class="ion-activated" detail lines="none" color="danger">
       <ion-label *ngIf="!post.modified">{{post.date | date}}</ion-label><ion-label *ngIf="post.modified">{{post.modified | date}}</ion-label>
-      <ion-label class="read-more-label">Read More</ion-label>
+      <ion-label class="read-more-label">View Item</ion-label>
     </ion-item>
   </ion-card>
   <ion-infinite-scroll (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
     loadingSpinner="bubbles"
-    loadingText="Loading more posts ...">
+    loadingText="Loading more items ...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>

@@ -43,3 +43,64 @@ Read how to [build this app for iOS](https://capacitor.ionicframework.com/docs/b
 
 #### Android Platform
 Read how to [build this app for Android](https://capacitor.ionicframework.com/docs/basics/building-your-app#android).
+
+
+
+#### Set up the WordPress Connection
+To have the app working with WordPress you will have to add the following to the index.php
+
+```
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
+header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-Token");
+```
+
+
+If you have custom fields for the post you will have to install the following plugin to get the content
+
+```
+https://wordpress.org/plugins/rest-api-custom-fields/
+```
+
+For allowing the user to create accounts and to comment or send messages you will have to install the following plugin
+
+```
+https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
+```
+
+To set up the jwt  authentication you will have to add this to the .htaccess file
+
+```
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+```
+
+Add the following to the wp.config.php
+
+```
+define('JWT_AUTH_SECRET_KEY', 'your-top-secret-key');
+define('JWT_AUTH_CORS_ENABLE', true);
+
+```
+
+And Finally replace into 
+```
+src/app/register/register.page.ts
+```
+
+Lines 43 and 44 with some admin credentials. 
+
+
+#### Commands to build the app
+
+The resources command will generate the icons and the splash.
+You will have to replace the icon.png (1024x1024) and the splash.jpg(2732x2732) from resource/ 
+
+```
+yarn build
+npx cap copy
+npx cap add android
+npm run resources
+npx cap copy android
+npx cap open android
+```

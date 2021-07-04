@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { catchError, concatMap, map } from 'rxjs/operators';
@@ -30,7 +30,7 @@ export class LoginGuard implements CanActivate {
                   return this.router.parseUrl('/posts');
                 }
               })
-            )
+            );
         } else {
           // there is no logged user
           return of(true);

@@ -13,9 +13,16 @@
 
 .skip-login {
   text-align: right;
-
+  color: white;
   a {
     text-decoration: none;
+    color:white;
+  }
+  ion-button{
+    color: white;
+  }
+  .ion-color-warning{
+    color: white;
   }
 }
 
@@ -42,4 +49,9 @@
 
 .submit-btn {
   margin-top: 60px;
+}
+
+img{
+  flex-direction: column;
+  align-items: center;
 }
