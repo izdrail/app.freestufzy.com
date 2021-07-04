@@ -1,4 +1,4 @@
-## Bmw Tutorials App
+## Free Stuff UK APP
 
 This is an Ionic app for my one of my side project which is using Wordpress REST API!
 
